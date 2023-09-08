@@ -1,4 +1,68 @@
-body{
-    background: rgb(150, 120, 120);
+*{
+    margin: 0;
+    padding: 0;
+}
+.cont{
+    background: rgb(160, 108, 100);
+}
+.containerTodo{
+    border-radius: 15px;
+
+}
+h1{
+    color: rgb(61, 29, 29) ;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+input{
+    font-size: 20px;
+	background: lightgray;
+	border: 2px solid gray;
+	width: 100%;
+	padding: 10px 10px 10px 20px;
 }
 
+ul{
+    cursor: pointer;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+li {
+	background: lightgray;
+	padding-left: 10px;
+	line-height: 2em;
+	margin: 0;
+	color: #313030;
+}
+li:nth-child(2n) {
+	background: rgb(147, 147, 147);
+    color: whitesmoke;
+}
+
+
+span {
+	height: 35px;
+	width: 0;
+	margin-right: 10px;
+	margin-left: -10px;
+	text-align: center;
+	display: inline-block;
+	color: white;
+	opacity: 0;
+	transition: 0.2s ease-in;
+}
+
+li:hover span {
+	opacity: 1;
+	width: 40px;
+	transition: 0.2s ease-in;
+}
+i.fa-trash {
+	margin: 0px;
+	padding: 0px;
+	color: #bb2a2a;
+}
