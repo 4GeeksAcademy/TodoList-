@@ -22,7 +22,7 @@ const Home = () => {
 
 
   return(
-    <div className="cont container-fluid vh-100 d-flex justify-content-center">
+    <div className="row cont container-fluid vh-100 d-flex justify-content-center">
       <div className="containerTodo bg-white m-auto p-5 w-50">
         <h1>List tasks</h1>
         <input type="text" placeholder="Add new tasks..." onKeyDown={enterInput} onChange={(event) => setInputValue(event.target.value)} value={inputValue} />

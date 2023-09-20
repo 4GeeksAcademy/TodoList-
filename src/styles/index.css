@@ -5,10 +5,13 @@
 .cont{
     background: rgb(160, 108, 100);
 }
+
 .containerTodo{
     border-radius: 15px;
-
+	width: 80%; 
+  	margin: 0 auto;
 }
+
 h1{
     color: rgb(61, 29, 29) ;
     text-align: center;
