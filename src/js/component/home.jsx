@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import List from "./list"
 
 
@@ -7,7 +7,20 @@ const Home = () => {
 
   const [inputValue, setInputValue] = useState ('');
   const [task, setTask] = useState ([])
+  const [tasks, setTasks] = useState ([])
   
+  /*Hago una llamada a la api para que me traiga la informacion del usuario que yo le asigne*/ 
+  useEffect (() => {
+    fetch("https://playground.4geeks.com/apis/fake/todos/user/fraanuni")
+    .then(response => response.json())
+    .then(data => setTasks(data))
+    .catch(err => err)
+  },[])
+
+  /*Hago una llamada a la api para que modifique mi lista cada ver que agrege una nueva tarea*/
+  
+
+
   const enterInput = (event) => {
     if(event.key === "Enter" && inputValue){
       setTask([...task, inputValue])
@@ -28,14 +41,14 @@ const Home = () => {
         <input type="text" placeholder="Add new tasks..." onKeyDown={enterInput} onChange={(event) => setInputValue(event.target.value)} value={inputValue} />
 
         <ul className="todolist my-3">
-					{task.map((element, index) => {
-						return <List text={element} deleteTask={deleteTask} itemIndex={index}/>
+					{tasks.map((element, index) => {
+						return <List text={element.label} deleteTask={deleteTask} itemIndex={index}/>
 					})}
 				</ul>
-
         <div className="footer">
           {task.length} items left.
-        </div>
+          <button className="text-end">Delete all list</button>
+        </div>   
       </div>
     </div>
   )};
