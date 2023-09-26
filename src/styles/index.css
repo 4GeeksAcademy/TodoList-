@@ -69,3 +69,13 @@ i.fa-trash {
 	padding: 0px;
 	color: #bb2a2a;
 }
+button{
+	padding: 3px;
+	border-radius: 5px;
+	color: rgb(54, 26, 21);
+	
+}
+.footer{
+	display: flex;
+	justify-content: space-between;
+}
