@@ -7,10 +7,10 @@ const Home = () => {
 
   const [inputValue, setInputValue] = useState("");
   const [tasks, setTasks] = useState([])
-  const url = "https://playground.4geeks.com/apis/fake/todos/user/fraanuni"
+ // const url = "https://playground.4geeks.com/apis/fake/todos/user/fraanuni"
 
   //Llamada a la API solo cuando se carga la pagina.
-  useEffect(() => {
+  /*useEffect(() => {
     fetch(url).then(resp => resp.json()).then(data => setTasks(data)).catch(err => console.log("err", err))
   }, []);
 
@@ -21,7 +21,7 @@ const Home = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(tasks)
     },).then(resp => resp.json()).then(data => data).catch(err => console.log("ERR", err))
-  }, [tasks]);
+  }, [tasks]);*/
 
 
   const enterInput = (event) => {
