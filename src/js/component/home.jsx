@@ -46,7 +46,14 @@ const Home = () => {
       setTasks(updatedTasks);
     }
   };
+  const deleteAllTasks = () => {
 
+    fetch(url,{method:"DELETE",
+  })
+  .then(() => setTasks([]))
+  .catch(err => console.log("ERR", err))
+    
+  };
   return (
     <div className="cont container-fluid vh-100 d-flex justify-content-center">
       <div className="containerTodo bg-white m-auto p-5">
@@ -61,7 +68,7 @@ const Home = () => {
         </ul>
         <div className="footer">
           <div>{tasks.length} items left.</div>
-          <button className="">Delete all list</button>
+          <button className="" onClick={deleteAllTasks}>Delete all list</button>
         </div>
       </div>
     </div>
