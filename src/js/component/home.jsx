@@ -6,7 +6,7 @@ const Home = () => {
   const [inputValue, setInputValue] = useState("");
   const [tasks, setTasks] = useState([])
 
-  const url = "https://playground.4geeks.com/apis/fake/todos/user/fraanuni"
+  const url = "https://playground.4geeks.com/apis/fake/todos/user/fraanuni"  // Cuando se use la apicacion VERIFICAR SI EL USUARIO NO FUE ELIMINADO
 
   //Llamada a la API solo cuando se carga la pagina.
   useEffect(() => {
@@ -19,7 +19,7 @@ const Home = () => {
       .catch(err => console.log("err", err))
   }, []);
 
-  const addTasks = (event) => {
+  const addTask = (event) => {
     if (event.key === "Enter") {
       setTasks([...tasks, { label: inputValue, done: false }])
       setInputValue("")
@@ -40,23 +40,21 @@ const Home = () => {
 
 
   const deleteTask = (event) => {
-    let index = parseInt(event.target.getAttribute("data-remove-id"));
-    if (!isNaN(index)) {
-      const updatedTasks = [...tasks];
-      updatedTasks.splice(index, 1);
+    let taskId = event.target.getAttribute("data-remove-id");
+    if (taskId) {
+      const updatedTasks = tasks.filter(task => task.id !== taskId);
       setTasks(updatedTasks);
     }
-
   };
 
   return (
     <div className="cont container-fluid vh-100 d-flex justify-content-center">
       <div className="containerTodo bg-white m-auto p-5">
         <h1>List tasks</h1>
-        <input type="text" placeholder="Add new tasks..." onKeyDown={addTasks} onChange={(event) => setInputValue(event.target.value)} value={inputValue} />
+        <input type="text" placeholder="Add new tasks..." onKeyDown={addTask} onChange={(event) => setInputValue(event.target.value)} value={inputValue} />
         <ul className="todolist my-3">
-          {tasks.map((element, index) =>(
-            <li className="container d-flex justify-content-between" key={index}>
+          {tasks.map((element) =>(
+            <li className="container d-flex justify-content-between" key={element.id}>
               {element.label} <span><i className="fa fa-trash" onClick={deleteTask} data-remove-id={element.id}></i></span>
             </li>
           ))}
